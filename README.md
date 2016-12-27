@@ -5,3 +5,49 @@
 [![Downloads](https://img.shields.io/npm/dm/reconnection.svg)](https://www.npmjs.com/package/reconnection)
 
 # reconnection
+
+#### features
+
++ support browser and nodejs connection client
++ support client of websocket, tcp and so on
+
+#### install
+
+`npm i reconnection`
+
+#### usage
+
+```ts
+// for nodejs connection client
+import { Reconnector } from "reconnection/nodejs";
+
+// or browser
+import { Reconnector } from "reconnection/browser";
+
+let ws;
+const reconnector = new Reconnector(() => {
+    ws = new WebSocket("ws://localhost:8000");
+    ws.onmessage = event => {
+        console.log(event.data);
+    };
+    ws.onclose = () => {
+        reconnector.reconnect();
+    };
+    ws.onopen = () => {
+        reconnector.reset();
+    };
+});
+```
+
+#### options
+
+```ts
+const reconnector = new Reconnector(() => {
+    // ...
+}, {
+    startTimeout: 3000, // 3000->4500->6750->10125->15187->22781->30000->30000...
+    increaseRate: 1.5,
+    endTimeout: 30000,
+    maxTimes: Infinity // for Infinity, never give up; for 3, just reconnect 3 times, if fails, stop.
+});
+```
