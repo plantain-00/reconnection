@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/plantain-00/reconnection#readme",
   "devDependencies": {
-    "@types/node": "7.0.5",
-    "tslint": "4.5.1",
-    "typescript": "2.2.1"
+    "@types/node": "7.0.12",
+    "tslint": "5.0.0",
+    "typescript": "2.2.2"
   }
 }
