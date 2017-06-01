@@ -1,9 +1,9 @@
-export interface ReconnectorOption {
+export type ReconnectorOption = {
     startTimeout: number;
     increaseRate: number;
     endTimeout: number;
     maxTimes: number;
-}
+};
 
 export abstract class ReconnectorBase {
     private startTimeout = 3000;
