@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "lint": "tslint \"*.ts\""
+    "lint": "tslint \"*.ts\" \"spec/*.ts\"",
+    "test": "tsc -p spec && jasmine"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,9 @@
   },
   "homepage": "https://github.com/plantain-00/reconnection#readme",
   "devDependencies": {
+    "@types/jasmine": "2.5.53",
     "@types/node": "8.0.7",
+    "jasmine": "2.6.0",
     "tslint": "5.4.3",
     "typescript": "2.4.1"
   },
