@@ -1,8 +1,0 @@
-.vscode
-.github
-tslint.json
-.travis.yml
-tsconfig.json
-browser.ts
-nodejs.ts
-common.ts
