@@ -18,11 +18,14 @@
 #### usage
 
 ```ts
-// for nodejs connection client
-import { Reconnector } from "reconnection/nodejs";
+// nodejs:
+import Reconnector from "reconnection/nodejs/nodejs";
 
-// or browser
-import { Reconnector } from "reconnection/browser";
+// browser(module):
+import Reconnector from "reconnection/browser/browser";
+
+// browser(script tag):
+// <script src="reconnection/reconnection.min.js"></script>
 
 let ws;
 const reconnector = new Reconnector(() => {
@@ -50,4 +53,16 @@ const reconnector = new Reconnector(() => {
     endTimeout: 30000,
     maxTimes: Infinity // for Infinity, never give up; for 3, just reconnect 3 times, if fails, stop.
 });
+```
+
+#### change logs
+
+```ts
+// v2
+import Reconnector from "reconnection/nodejs/nodejs";
+import Reconnector from "reconnection/browser/browser";
+
+// v1
+import { Reconnector } from "reconnection/nodejs";
+import { Reconnector } from "reconnection/browser";
 ```
