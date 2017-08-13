@@ -1,5 +1,8 @@
 import { ReconnectorOption, ReconnectorBase } from "./common";
 
+/**
+ * @public
+ */
 export default class Reconnector extends ReconnectorBase {
     private eventTarget = document.createElement("div");
     constructor(action: () => void, options?: Partial<ReconnectorOption>) {

@@ -1,6 +1,9 @@
 import * as EventEmitter from "events";
 import { ReconnectorOption, ReconnectorBase } from "./common";
 
+/**
+ * @public
+ */
 export default class Reconnector extends ReconnectorBase {
     private eventEmiter = new EventEmitter();
     constructor(action: () => void, options?: Partial<ReconnectorOption>) {
