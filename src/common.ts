@@ -29,7 +29,7 @@ export abstract class ReconnectorBase {
         }
         this.reset();
     }
-    reconnect() {
+    public reconnect() {
         if (this.times >= this.maxTimes) {
             return;
         }
@@ -43,7 +43,7 @@ export abstract class ReconnectorBase {
             this.dispatchReconnection();
         }, this.timeout);
     }
-    reset() {
+    public reset() {
         this.timeout = this.startTimeout;
         this.times = 0;
     }
