@@ -12,13 +12,38 @@ module.exports = {
     }
   ],
   lint: {
-    ts: `tslint "src/*.ts" "spec/*.ts"`,
+    ts: `tslint "src/*.ts" "spec/*.ts" "demo/*.ts"`,
     js: `standard "**/*.config.js"`,
-    export: `no-unused-export "src/*.ts" "spec/*.ts"`
+    export: `no-unused-export "src/*.ts" "spec/*.ts" "demo/*.ts"`
   },
   test: [
     'tsc -p spec',
     'jasmine',
+    'tsc -p demo',
+    () => new Promise((resolve, reject) => {
+      let server = childProcess.spawn('node', ['demo/server.js'])
+      server.stdout.pipe(process.stdout)
+      server.stderr.pipe(process.stderr)
+
+      const client = childProcess.spawn('node', ['demo/client.js'])
+      client.stdout.pipe(process.stdout)
+      client.stderr.pipe(process.stderr)
+
+      setTimeout(() => {
+        server.kill('SIGINT')
+      }, 2000)
+
+      setTimeout(() => {
+        server = childProcess.spawn('node', ['demo/server.js'])
+        server.stdout.pipe(process.stdout)
+        server.stderr.pipe(process.stderr)
+      }, 20000)
+
+      setTimeout(() => {
+        server.kill('SIGINT')
+        resolve()
+      }, 30000)
+    }),
     () => new Promise((resolve, reject) => {
       childProcess.exec('git status -s', (error, stdout, stderr) => {
         if (error) {

@@ -21,6 +21,7 @@
 ```ts
 // nodejs:
 import Reconnector from "reconnection/nodejs/nodejs";
+import * as WebSocket from "ws";
 
 // browser(module):
 import Reconnector from "reconnection/browser/browser";
@@ -28,17 +29,19 @@ import Reconnector from "reconnection/browser/browser";
 // browser(script tag):
 // <script src="reconnection/reconnection.min.js"></script>
 
-let ws;
 const reconnector = new Reconnector(() => {
+    console.log(`connecting...`);
     ws = new WebSocket("ws://localhost:8000");
-    ws.onmessage = event => {
-        console.log(event.data);
-    };
     ws.onclose = () => {
+        console.log(`disconnected...`);
         reconnector.reconnect();
     };
     ws.onopen = () => {
+        console.log("connected...");
         reconnector.reset();
+    };
+    ws.onerror = error => {
+        console.log(error);
     };
 });
 ```
