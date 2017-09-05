@@ -39,6 +39,7 @@ module.exports = {
         server.stderr.pipe(process.stderr)
 
         setTimeout(() => {
+          client.kill('SIGINT')
           server.kill('SIGINT')
           resolve()
         }, 10000)
