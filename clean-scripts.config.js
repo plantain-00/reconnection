@@ -37,12 +37,12 @@ module.exports = {
         server = childProcess.spawn('node', ['demo/server.js'])
         server.stdout.pipe(process.stdout)
         server.stderr.pipe(process.stderr)
-      }, 20000)
 
-      setTimeout(() => {
-        server.kill('SIGINT')
-        resolve()
-      }, 30000)
+        setTimeout(() => {
+          server.kill('SIGINT')
+          resolve()
+        }, 10000)
+      }, 20000)
     }),
     () => new Promise((resolve, reject) => {
       childProcess.exec('git status -s', (error, stdout, stderr) => {
