@@ -1,4 +1,5 @@
 const childProcess = require('child_process')
+const { sleep } = require('clean-scripts')
 
 module.exports = {
   build: [
@@ -20,7 +21,7 @@ module.exports = {
     'tsc -p spec',
     'jasmine',
     'tsc -p demo',
-    () => new Promise((resolve, reject) => {
+    async () => {
       let server = childProcess.spawn('node', ['demo/server.js'])
       server.stdout.pipe(process.stdout)
       server.stderr.pipe(process.stderr)
@@ -29,22 +30,18 @@ module.exports = {
       client.stdout.pipe(process.stdout)
       client.stderr.pipe(process.stderr)
 
-      setTimeout(() => {
-        server.kill('SIGINT')
-      }, 2000)
+      await sleep(2000)
+      server.kill('SIGINT')
 
-      setTimeout(() => {
-        server = childProcess.spawn('node', ['demo/server.js'])
-        server.stdout.pipe(process.stdout)
-        server.stderr.pipe(process.stderr)
+      await sleep(18000)
+      server = childProcess.spawn('node', ['demo/server.js'])
+      server.stdout.pipe(process.stdout)
+      server.stderr.pipe(process.stderr)
 
-        setTimeout(() => {
-          client.kill('SIGINT')
-          server.kill('SIGINT')
-          resolve()
-        }, 10000)
-      }, 20000)
-    }),
+      await sleep(10000)
+      client.kill('SIGINT')
+      server.kill('SIGINT')
+    },
     () => new Promise((resolve, reject) => {
       childProcess.exec('git status -s', (error, stdout, stderr) => {
         if (error) {
