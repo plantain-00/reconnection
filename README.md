@@ -29,6 +29,7 @@ import Reconnector from "reconnection/browser/browser";
 // browser(script tag):
 // <script src="reconnection/reconnection.min.js"></script>
 
+let ws;
 const reconnector = new Reconnector(() => {
     console.log(`connecting...`);
     ws = new WebSocket("ws://localhost:8000");
