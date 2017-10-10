@@ -20,3 +20,11 @@ const reconnector = new Reconnector(() => {
         // do nothing
     };
 });
+
+process.on("SIGINT", () => {
+    process.exit();
+});
+
+process.on("SIGTERM", () => {
+    process.exit();
+});
