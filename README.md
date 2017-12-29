@@ -1,3 +1,5 @@
+# reconnection
+
 [![Dependency Status](https://david-dm.org/plantain-00/reconnection.svg)](https://david-dm.org/plantain-00/reconnection)
 [![devDependency Status](https://david-dm.org/plantain-00/reconnection/dev-status.svg)](https://david-dm.org/plantain-00/reconnection#info=devDependencies)
 [![Build Status: Linux](https://travis-ci.org/plantain-00/reconnection.svg?branch=master)](https://travis-ci.org/plantain-00/reconnection)
@@ -5,18 +7,16 @@
 [![npm version](https://badge.fury.io/js/reconnection.svg)](https://badge.fury.io/js/reconnection)
 [![Downloads](https://img.shields.io/npm/dm/reconnection.svg)](https://www.npmjs.com/package/reconnection)
 
-# reconnection
-
-#### features
+## features
 
 + support browser and nodejs connection client
 + support client of websocket, tcp and so on
 
-#### install
+## install
 
 `npm i reconnection`
 
-#### usage
+## usage
 
 ```ts
 // nodejs:
@@ -47,7 +47,7 @@ const reconnector = new Reconnector(() => {
 });
 ```
 
-#### options
+## options
 
 ```ts
 const reconnector = new Reconnector(() => {
@@ -60,7 +60,7 @@ const reconnector = new Reconnector(() => {
 });
 ```
 
-#### change logs
+## change logs
 
 ```ts
 // v2
