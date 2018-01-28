@@ -27,7 +27,7 @@ import * as WebSocket from "ws";
 import Reconnector from "reconnection/browser/browser";
 
 // browser(script tag):
-// <script src="reconnection/reconnection.min.js"></script>
+// <script src="./node_modules/reconnection/reconnection.min.js"></script>
 
 let ws;
 const reconnector = new Reconnector(() => {
