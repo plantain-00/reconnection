@@ -10,8 +10,8 @@ export abstract class ReconnectorBase {
   private increaseRate = 1.5
   private endTimeout = 30000
   private maxTimes = Infinity
-  private timeout: number
-  private times: number
+  private timeout = 0
+  private times = 0
   constructor (options?: Partial<ReconnectorOption>) {
     if (options) {
       if (typeof options.startTimeout === 'number') {
