@@ -1,4 +1,4 @@
-import * as WebSocket from 'ws'
+import WebSocket from 'ws'
 import Reconnector from '../dist/nodejs/nodejs'
 
 let ws: WebSocket
