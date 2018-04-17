@@ -1,4 +1,4 @@
-const { sleep, Service, checkGitStatus } = require('clean-scripts')
+const { sleep, Service } = require('clean-scripts')
 
 const tsFiles = `"src/**/*.ts" "spec/**/*.ts" "demo/**/*.ts"`
 const jsFiles = `"*.config.js"`
@@ -30,9 +30,7 @@ module.exports = {
     () => sleep(2000),
     async context => context.server.kill('SIGINT'),
     () => sleep(18000),
-    new Service('node demo/server.js', 'server'),
-    () => sleep(10000),
-    () => checkGitStatus()
+    new Service('node demo/server.js', 'server')
   ],
   fix: {
     ts: `tslint --fix ${tsFiles}`,
