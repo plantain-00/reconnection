@@ -12,7 +12,7 @@ export abstract class ReconnectorBase {
   private maxTimes = Infinity
   private timeout = 0
   private times = 0
-  constructor (options?: Partial<ReconnectorOption>) {
+  constructor(options?: Partial<ReconnectorOption>) {
     if (options) {
       if (typeof options.startTimeout === 'number') {
         this.startTimeout = options.startTimeout
@@ -29,7 +29,7 @@ export abstract class ReconnectorBase {
     }
     this.reset()
   }
-  public reconnect () {
+  public reconnect() {
     if (this.times >= this.maxTimes) {
       return
     }
@@ -43,9 +43,9 @@ export abstract class ReconnectorBase {
       this.dispatchReconnection()
     }, this.timeout)
   }
-  public reset () {
+  public reset() {
     this.timeout = this.startTimeout
     this.times = 0
   }
-  protected abstract dispatchReconnection (): void
+  protected abstract dispatchReconnection(): void
 }

@@ -6,12 +6,12 @@ import { ReconnectorOption, ReconnectorBase } from './common'
  */
 export default class Reconnector extends ReconnectorBase {
   private eventEmiter = new EventEmitter()
-  constructor (action: () => void, options?: Partial<ReconnectorOption>) {
+  constructor(action: () => void, options?: Partial<ReconnectorOption>) {
     super(options)
     this.eventEmiter.addListener('reconnect', action)
     action()
   }
-  protected dispatchReconnection () {
+  protected dispatchReconnection() {
     this.eventEmiter.emit('reconnect')
   }
 }
