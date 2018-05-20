@@ -1,8 +1,12 @@
 {
   "name": "reconnection",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A javascript library for browser or nodejs client reconnection.",
   "main": "index.js",
+  "module": "index.js",
+  "unpkg": "reconnection.min.js",
+  "jsdelivr": "reconnection.min.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "clean-scripts build",
     "lint": "clean-scripts lint",

@@ -6,6 +6,7 @@
 [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/github/plantain-00/reconnection?branch=master&svg=true)](https://ci.appveyor.com/project/plantain-00/reconnection/branch/master)
 [![npm version](https://badge.fury.io/js/reconnection.svg)](https://badge.fury.io/js/reconnection)
 [![Downloads](https://img.shields.io/npm/dm/reconnection.svg)](https://www.npmjs.com/package/reconnection)
+[![gzip size](https://img.badgesize.io/https://unpkg.com/reconnection?compression=gzip)](https://unpkg.com/reconnection)
 
 ## features
 
