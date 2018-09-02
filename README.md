@@ -21,11 +21,11 @@
 
 ```ts
 // nodejs:
-import Reconnector from "reconnection/nodejs/nodejs";
+import Reconnector from "reconnection";
 import * as WebSocket from "ws";
 
 // browser(module):
-import Reconnector from "reconnection/browser/browser";
+import Reconnector from "reconnection";
 
 // browser(script tag):
 // <script src="./node_modules/reconnection/reconnection.min.js"></script>
