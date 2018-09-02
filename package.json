@@ -1,6 +1,6 @@
 {
   "name": "reconnection",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A javascript library for browser or nodejs client reconnection.",
   "main": "nodejs/index.js",
   "module": "browser/index.js",
