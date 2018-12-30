@@ -3,9 +3,9 @@ import resolve from 'rollup-plugin-node-resolve'
 
 export default {
   input: 'dist/browser/browser.js',
-  name: 'Reconnector',
   plugins: [resolve({ browser: true }), uglify()],
   output: {
+    name: 'Reconnector',
     file: 'dist/reconnection.min.js',
     format: 'umd'
   }
