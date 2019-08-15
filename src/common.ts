@@ -1,4 +1,4 @@
-export type ReconnectorOption = {
+export interface ReconnectorOption {
   startTimeout: number;
   increaseRate: number;
   endTimeout: number;
