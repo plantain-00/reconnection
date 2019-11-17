@@ -6,7 +6,6 @@
   "module": "browser/browser.js",
   "unpkg": "reconnection.min.js",
   "jsdelivr": "reconnection.min.js",
-  "types": "nodejs/nodejs.d.ts",
   "scripts": {
     "build": "clean-scripts build",
     "lint": "clean-scripts lint",
@@ -29,6 +28,7 @@
   "devDependencies": {
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
+    "@microsoft/api-extractor": "^7.6.0",
     "@types/jasmine": "3.4.6",
     "@types/node": "12.12.7",
     "@types/ws": "6.0.3",
