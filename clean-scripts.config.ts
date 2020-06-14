@@ -1,9 +1,9 @@
-const { sleep, Service } = require('clean-scripts')
+import { sleep, Service } from 'clean-scripts'
 
-const tsFiles = `"src/**/*.ts" "spec/**/*.ts" "demo/**/*.ts"`
+const tsFiles = `"src/**/*.ts" "demo/**/*.ts"`
 const jsFiles = `"*.config.js"`
 
-module.exports = {
+export default {
   build: [
     `rimraf dist/`,
     {
@@ -26,13 +26,11 @@ module.exports = {
     typeCoverageBrowser: 'type-coverage -p src/tsconfig.browser.json --strict'
   },
   test: [
-    'tsc -p spec',
-    'jasmine',
-    'tsc -p demo',
-    new Service('node demo/server.js', 'server'),
-    new Service('node demo/client.js'),
+    new Service('ts-node demo/server.ts', 'server'),
     () => sleep(2000),
-    async context => context.server.kill('SIGINT'),
+    new Service('ts-node demo/client.ts'),
+    () => sleep(2000),
+    async (context: any) => context.server.kill('SIGINT'),
     () => sleep(18000),
     new Service('node demo/server.js', 'server')
   ],
