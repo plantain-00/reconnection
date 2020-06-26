@@ -1,7 +1,6 @@
 import { sleep, Service } from 'clean-scripts'
 
 const tsFiles = `"src/**/*.ts" "demo/**/*.ts"`
-const jsFiles = `"*.config.js"`
 
 export default {
   build: [
@@ -18,9 +17,8 @@ export default {
     }
   ],
   lint: {
-    ts: `eslint --ext .js,.ts,.tsx ${tsFiles} ${jsFiles}`,
+    ts: `eslint --ext .js,.ts,.tsx ${tsFiles}`,
     export: `no-unused-export ${tsFiles}`,
-    commit: `commitlint --from=HEAD~1`,
     markdown: `markdownlint README.md`,
     typeCoverage: 'type-coverage -p src/tsconfig.nodejs.json --strict',
     typeCoverageBrowser: 'type-coverage -p src/tsconfig.browser.json --strict'
@@ -34,5 +32,5 @@ export default {
     () => sleep(18000),
     new Service('node demo/server.js', 'server')
   ],
-  fix: `eslint --ext .js,.ts,.tsx ${tsFiles} ${jsFiles} --fix`
+  fix: `eslint --ext .js,.ts,.tsx ${tsFiles} --fix`
 }
