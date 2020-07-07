@@ -48,6 +48,6 @@
     "ws": "7.3.0"
   },
   "dependencies": {
-    "tslib": "2"
+    "tslib": "1 || 2"
   }
 }
